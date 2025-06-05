@@ -1,12 +1,12 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import type { Session } from "next-auth";
+import type { NextAuthOptions, Session } from "next-auth";
 import { PrismaClient } from "@/app/generated/prisma";
 
 const prisma = new PrismaClient();
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
@@ -59,4 +59,6 @@ export default NextAuth({
     error: "/pages/api/auth/error",
   },
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
+
+export default NextAuth(authOptions);

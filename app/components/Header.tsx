@@ -20,7 +20,10 @@ export default function Header() {
           Bookstore
         </Link>
 
-        <nav className="flex items-center space-x-6">
+        <nav className="flex items-center justify-center space-x-6">
+          <Link href="/add" className={`${linkClass("/add"), "px-4 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition"}`}>
+            ➕ Dodaj
+          </Link>
           <Link href="/" className={linkClass("/")}>
             Główna
           </Link>

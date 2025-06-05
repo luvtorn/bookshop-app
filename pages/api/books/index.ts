@@ -1,16 +1,32 @@
 import { prisma } from "@/app/lib/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const session = await getSession({ req });
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const session = await getServerSession(req, res, authOptions);
 
   if (!session || !session.user?.id) {
     res.status(401).json({ message: "Unauthorized" });
     return;
   }
 
-  if (req.method === "POST") {
+  if (req.method === "GET") {
+    try {
+      const books = await prisma.book.findMany({
+        include: { user: true },
+        orderBy: { createdAt: "desc" },
+      });
+      res.status(200).json(books);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch books" });
+    }
+  }
+
+  else if (req.method === "POST") {
     const { title, author, description } = req.body;
     if (!title || !author) {
       res.status(400).json({ message: "Title and author required" });
@@ -30,7 +46,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } catch (error) {
       res.status(500).json({ message: "Failed to create book" });
     }
-  } else {
+  }
+
+  else {
+    res.setHeader("Allow", ["GET", "POST"]);
     res.status(405).json({ message: "Method not allowed" });
   }
 }
