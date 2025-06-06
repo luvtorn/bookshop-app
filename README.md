@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📚 Bookshop — internetowy sklep z książkami
+-------------------------------------------
 
-## Getting Started
+Nowoczesna aplikacja webowa do przeglądania, dodawania i edytowania książek z obsługą przesyłania okładek i zarządzaniem użytkownikami.
 
-First, run the development server:
+### 🚀 Technologie
 
+*   **Next.js** – renderowanie po stronie serwera i routing
+    
+*   **TypeScript** – statyczne typowanie
+    
+*   **Tailwind CSS** i/lub **MUI** – nowoczesny wygląd UI
+    
+*   **React Hook Form** – obsługa formularzy
+    
+*   **Prisma** – ORM do obsługi bazy danych
+    
+*   **Supabase Storage** – przechowywanie i obsługa obrazów
+    
+*   **PostgreSQL** – relacyjna baza danych
+    
+*   **Axios** – zapytania HTTP
+    
+
+### 📦 Instalacja i uruchomienie
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1. Sklonuj repozytorium
+    git clone https://github.com/twoja_nazwa/bookshop.git  
+    cd bookshop  
+# 2. Zainstaluj zależności  
+    npm install  
+# 3. Skonfiguruj plik .env.local  
+    cp .env.example .env.local  
+# 4. Uruchom aplikację  
+    npm run dev
+```
+    
+### ⚙️ Zmienne środowiskowe (.env.local)
+```js
+    DATABASE_URL=postgresql://...  
+    NEXT_PUBLIC_SUPABASE_URL=https://...  
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=...  
+    SUPABASE_SERVICE_ROLE_KEY=...
+```
+        
+
+### 🧱 Struktura projektu
+```
+/app  ┣ 📁 components   # Komponenty interfejsu użytkownika  
+      ┣ 📁 pages             # Backend  
+      ┣ 📁 api               # API (wewnętrzne)  
+      ┣ 📁 lib               # Narzędzia  
+      ┣ 📁 prisma            # Schemat bazy danych i migracje  
+      ┣ 📄 types.ts          # Typy globalne  
+      ┗ 📄 README.md         # Dokumentacja projektu   
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🧩 Główne funkcjonalności
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* ✅ Przeglądanie listy książek
+* ✅ Rejestracja i logowanie
+* ✅ Dodawanie książek wraz z obrazem
+* ✅ Edytowanie i usuwanie książek (tylko przez właściciela)
+* ✅ Obsługa formularzy z walidacją
+* ✅ Przesyłanie plików do Supabase
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔒 Uwierzytelnianie
 
-## Learn More
+Aplikacja wykorzystuje prosty system rejestracji i logowania z przechowywaniem danych użytkowników w bazie PostgreSQL.
 
-To learn more about Next.js, take a look at the following resources:
+### 📌 Przyszłe plany
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+*   Filtrowanie i sortowanie książek
+    
+*   Stronicowanie
+    
+*   Kategorie i tagi
+    
+*   System ocen lub komentarzy
+    
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🧑‍💻 Autor
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Mikołaj Germanenka**📍 Poznań, Polska📫 kolyangermanenko@gmail.com
