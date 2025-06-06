@@ -19,7 +19,7 @@ export const registerUser = async (
     return response.data;
   } catch (error: any) {
     if (error.response) {
-      throw new Error(error.response.data.message || "Ошибка регистрации");
+      throw new Error(error.response.data.message || "Something went wrong");
     }
     throw error;
   }
