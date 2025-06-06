@@ -17,8 +17,6 @@ export const Books = () => {
 
   const userId = session?.user?.id;
 
-  console.log(books);
-
   const handleEditClick = (book: Book | null) => {
     setEditingBook(book);
     setIsEditModalOpen(true);
@@ -31,8 +29,6 @@ export const Books = () => {
 
   const handleSave = async (data: BookForm) => {
     if (!editingBook) return;
-
-    console.log(data);
 
     try {
       await 

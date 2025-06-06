@@ -21,8 +21,6 @@ export default async function handler(
   form.parse(req, async (err, _, files) => {
     if (err) return res.status(500).json({ error: "Ошибка загрузки файла" });
 
-    console.log(files);
-
     const file = files.file?.[0];
     if (!file) return res.status(400).json({ error: "Файл обязателен" });
 

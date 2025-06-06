@@ -22,7 +22,6 @@ export default async function handler(
 
   if (req.method === "PUT") {
     const { title, author, description, imageId } = req.body;
-    console.log(imageId)
     try {
       const updated = await prisma.book.update({
         where: { id: bookId },

@@ -25,7 +25,7 @@ Nowoczesna aplikacja webowa do przeglądania, dodawania i edytowania książek z
 ### 📦 Instalacja i uruchomienie
 ```bash
 # 1. Sklonuj repozytorium
-    git clone https://github.com/twoja_nazwa/bookshop.git  
+    git clone https://github.com/luvtorn/bookshop.git  
     cd bookshop  
 # 2. Zainstaluj zależności  
     npm install  

@@ -70,9 +70,7 @@ export default function AddBookPage() {
       console.error("Błąd serwera:", err);
     }
   };
-
-  console.log(uploadedImage);
-
+  
   if (status === "loading") return <Loading />;
 
   return (

@@ -41,7 +41,6 @@ export const editBook = async ({
   data: BookForm;
 }) => {
   try {
-    console.log(data);
     const response = await api.put(`/books/${id}`, data);
     return response.data;
   } catch (error: any) {
@@ -53,7 +52,6 @@ export const editBook = async ({
 };
 
 export const createBook = async (data: CreateBookInput) => {
-  console.log(data);
   try {
     const response = await api.post("/books", data);
     return response.data;
