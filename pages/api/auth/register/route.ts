@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { prisma } from "@/app/lib/prisma";
 
@@ -15,10 +14,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Хешируем пароль
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Создаем пользователя в базе
     const user = await prisma.user.create({
       data: {
         name,

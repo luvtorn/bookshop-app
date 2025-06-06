@@ -42,8 +42,8 @@ export default async function handler(
 
   if (req.method === "DELETE") {
     try {
-      await prisma.book.delete({ where: { id: bookId } });
       await prisma.image.delete({ where: { bookId: bookId } });
+      await prisma.book.delete({ where: { id: bookId } });
       return res.status(200).json({ message: "Book deleted" });
     } catch {
       return res.status(500).json({ message: "Deletion failed" });
