@@ -5,7 +5,6 @@ import { prisma } from "@/app/lib/prisma";
 
 export async function POST(request: NextRequest) {
   try {
-    console.log(request);
     const body = await request.json();
     const { name, email, password } = body;
 

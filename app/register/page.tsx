@@ -20,6 +20,14 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (form.password.length < 6) return setError("Hasło jest za krótkie.");
+    if (form.name.length < 2) return setError("Imie jest za krótkie.");
+    if (
+      form.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/) ===
+      null
+    )
+      return setError("Podany email jest niepoprawny.");
+      
     setLoading(true);
     try {
       await mutateAsync(form);
