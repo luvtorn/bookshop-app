@@ -77,6 +77,9 @@ Aplikacja wykorzystuje prosty system rejestracji i logowania z przechowywaniem d
 *   Kategorie i tagi
     
 *   System ocen lub komentarzy
+
+   ### Demo:
+https://bookshop-app-oda9.vercel.app/ — Działająca wersja projektu wdrożona na Vercel.
     
 
 ### 🧑‍💻 Autor
